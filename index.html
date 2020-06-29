@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>spacex</title>
+		<link rel="stylesheet" type="text/css" href="Css/style.css">
+		 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		 
+		 
+		  <!--------------------------  Dit is het begin van de colum ------------------------->
+	      <script type="text/javascript">
+		    google.charts.load("current", {packages:['corechart']});
+		    google.charts.setOnLoadCallback(drawChart);
+		    function drawChart() {
+		      var columData = google.visualization.arrayToDataTable([
+		        ["Soort", "Overig voedsel", { role: "style" } ],
+		        ["Snacks", 20.94, "#8ff0e4"],
+		        ["Vleeswaar", 20.49, "#f0e57b"],
+		        ["Vis", 10.30, "#87f69f"],
+		        ["Brood", 21.45, "color: #ea9df9"]
+		      ]);
+
+		      var columView = new google.visualization.DataView(columData);
+		      columView.setColumns([0, 1,
+		                       { calc: "stringify",
+		                         sourceColumn: 1,
+		                         type: "string",
+		                         role: "annotation" },
+		                       2]);
+
+		      var columOptions = {
+		        backgroundColor: 'transparent',
+		        bar: {groupWidth: "90%"},
+		        hAxis: {
+      color: '#FFF',
+    },
+		        legendTextStyle: { color: '#FFF' },
+
+		        
+
+		      };
+		      var columChart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+		      columChart.draw(columView, columOptions);
+		  }
+		  window.addEventListener("resize", function(){
+			drawChart();
+		});
+		</script>
+		<!------------------------   Dit is het begin van de piechart------------------------->
+		  <script type="text/javascript">
+	      google.charts.load('current', {'packages':['corechart']});
+	      google.charts.setOnLoadCallback(drawChart);
+
+	      function drawChart() {
+
+	        var pieData = google.visualization.arrayToDataTable([
+	          ['Persoon', 'Aantal personen'],
+	          ['Man',  1100, ],
+	          ['Vrouw',  1500],
+	          ['kinder',  900],
+	          ['Huisdier', 100,],
+	          ['Bemanning',    300]
+	        ]);
+
+	        var pieOptions = {
+	     //      titleTextStyle: {
+    		// 	color: 'white',
+    		// }
+	           backgroundColor: 'transparent',
+	           hAxis: {
+      			color: '#FFF',
+   				 },
+	          colors: ['#ff6565', '#8ff0e4', '#f0e57b', '#87f69f', '#ea9df9'],
+	          legendTextStyle: { color: '#FFF' },
+
+	        };
+
+	        var pieChart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+	        pieChart.draw(pieData, pieOptions);
+	      }
+	    </script>
+
+	       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   
+<!-- Vanaf hier begint de javascript voor de snelheidsmeter -->
+
+		   <script type="text/javascript">
+		      google.charts.load('current', {'packages':['gauge']});
+		      google.charts.setOnLoadCallback(drawChart);
+
+		      function drawChart() {
+
+		        var data = google.visualization.arrayToDataTable([
+		          ['Label', 'Value'],
+		          ['Speed', 2000]
+		        ]);
+
+		        var options = {
+		          width: 500, height: 220,
+		          redFrom: 90, redTo: 2000,
+		          yellowFrom:75, yellowTo: 90,
+		          minorTicks: 5
+		        };
+
+		        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+		        chart.draw(data, options);
+
+		        setInterval(function() {
+		          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+		          chart.draw(data, options);
+		        }, 13000);
+		      }
+		    </script>
+
+	  <!----------------------------   Dit is het begin van de lijndiagram --------------------->
+	      <script type="text/javascript">
+	      google.charts.load('current', {'packages':['corechart']});
+	      google.charts.setOnLoadCallback(drawChart);
+
+	      function drawChart() {
+	        var lineData = google.visualization.arrayToDataTable([
+	          ['Jaar', 'Aantal km'],
+	          ['18 februari',  110],
+	          ['19 februari',  112],
+	          ['20 februari',  120],
+	          ['21 februari',  116]
+	        ]);
+
+	        var lineOptions = {
+	          color: 'white',
+	          backgroundColor: 'transparent',
+	          legendTextStyle: { color: '#FFF' },
+	          curveType: 'function',
+	          legend: { position: 'right' }
+
+	        };
+
+	        var lineChart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+	        lineChart.draw(lineData, lineOptions
+
+	        	 )};
+	     
+	    </script>
+
+	 
+
+	</head>
+	<body> 
+		<header class="grid-item header">
+			<img class="logo" src="Images/spacex.png">
+			<p>Interplantary Transport System Interface</p>
+		</header>
+
+		<div class="columns">
+			<div class="column columnfood">
+				<p class="top1">Voedsel voorraad</p>
+	   			<div id="columnchart_values"></div>
+	  		</div>
+	  		<div class="column columnbevolking">
+	  			<p class="top2">Bevolking</p>
+	 	 		<div id="piechart"></div>
+	  		</div>
+	  		
+	  		<div class="column columnkilometers">
+	  			<p class="top3">Aantal kilometers per dag (x1000)</p>
+	     		<div id="curve_chart"></div>
+	 		</div>
+	 		<div class="column columnsnelheid">
+	 			<p class="top4">Speed</p>
+				<div id="chart_div"></div>
+			</div>
+	  	
+		</div>
+	</body>
+</html>

@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200');
+
+body{
+	font-family: 'Montserrat', sans-serif;
+	margin: 0px;
+	background-image: url("../images/aarde.jpg");
+  	background-repeat: no-repeat;
+ 	background-size: cover;
+  	background-position: center;
+  	background-color: #101010;
+	width: 100%;
+	height: 100%;
+ }
+
+p{
+	text-align: center;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	padding-top: 40px;
+
+}
+
+
+header{
+	background-color: #202020;
+	display: inline-block;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	width: 100%;
+}
+
+.logo{
+	width: 500px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* -------------- Kleuring van de box-----------------*/
+
+.top1{
+	background-color: #DB4654;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px;
+	padding-bottom: 40px;
+}
+
+.top2{
+	background-color: #49ADDA;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px;
+	padding-bottom: 40px;
+}
+
+.top3{
+	background-color: #D871AE;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px;
+	padding-bottom: 40px;
+}
+
+.top4{
+	background-color: #F6BD42;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px;
+	padding-bottom: 40px;
+}
+
+
+.columnfood{
+	background-color: #EA4A5B;
+
+}
+
+.columnbevolking{
+	background-color: #50BEEF;
+}
+
+.columnkilometers{
+	background: #DC7EB6;
+}
+
+.columnsnelheid{
+	background: #FACF46;
+
+}
+
+/*Display van de grafieken*/
+
+#curve_chart, #columnchart_values, #piechart, #chart_div{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: wrap;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px; 
+	height: 300px;
+}
+
+.column{
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 40px;
+	border-radius: 10px;
+}
+
+@media only screen and (min-width: 601px){
+  body{
+  	display: flex;
+  	flex-direction: row;
+  	display: inline;
+  	justify-content: flex-start;
+  }
+  
+
+}
+
+@media only screen and (min-width: 1000px){
+  
+   .columns{
+   	display: flex;
+   	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	}
+
+	#curve_chart, #columnchart_values, #piechart, #chart_div{
+		padding-left: 10px;
+	}
+
+
+}
+
+@media only screen and (min-width: 2000px){
+   body{
+   }
+
+}
+
